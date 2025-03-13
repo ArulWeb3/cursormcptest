@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  calculator-api:
+    build:
+      context: ./calculator
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  calculator-frontend:
+    build:
+      context: ./calculator-frontend
+      dockerfile: Dockerfile
+    ports:
+      - "8501:8501"
+    depends_on:
+      calculator-api:
+        condition: service_healthy
+    environment:
+      - API_BASE_URL=http://calculator-api:8000
