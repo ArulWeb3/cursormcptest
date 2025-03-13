@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Main Menu -->
+    <menuitem id="menu_product_cleansing_root"
+              name="Product Cleansing"
+              sequence="50"/>
+
+    <!-- Sub Menus -->
+    <menuitem id="menu_product_cleansing_data"
+              name="External Data"
+              parent="menu_product_cleansing_root"
+              action="action_product_external_data"
+              sequence="10"/>
+
+    <menuitem id="menu_product_cleansing_matches"
+              name="Product Matches"
+              parent="menu_product_cleansing_root"
+              action="action_product_match_mapping"
+              sequence="20"/>
+</odoo>

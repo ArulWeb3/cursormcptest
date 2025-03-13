@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_product_form_inherit_cleansing" model="ir.ui.view">
+        <field name="name">product.product.form.inherit.cleansing</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="External Data Matching" name="external_matching">
+                    <group>
+                        <group>
+                            <field name="moombs_brand"/>
+                            <field name="moombs_category"/>
+                        </group>
+                        <group>
+                            <field name="moombs_color"/>
+                            <field name="moombs_size"/>
+                        </group>
+                    </group>
+                    <field name="external_match_ids">
+                        <tree>
+                            <field name="external_data_id"/>
+                            <field name="status"/>
+                            <field name="matching_score" widget="percentage"/>
+                            <field name="match_validated_at"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

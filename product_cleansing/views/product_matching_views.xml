@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- External Data Views -->
+    <record id="view_product_external_data_tree" model="ir.ui.view">
+        <field name="name">product.external.data.tree</field>
+        <field name="model">product.external.data</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="custom_id"/>
+                <field name="source"/>
+                <field name="version"/>
+                <field name="timestamp"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_product_external_data_form" model="ir.ui.view">
+        <field name="name">product.external.data.form</field>
+        <field name="model">product.external.data</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="custom_id"/>
+                            <field name="source"/>
+                            <field name="version"/>
+                        </group>
+                        <group>
+                            <field name="timestamp"/>
+                            <field name="previous_version_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Data" name="data">
+                            <field name="data" widget="json_field"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Match Mapping Views -->
+    <record id="view_product_match_mapping_tree" model="ir.ui.view">
+        <field name="name">product.match.mapping.tree</field>
+        <field name="model">product.match.mapping</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="product_id"/>
+                <field name="external_data_id"/>
+                <field name="status"/>
+                <field name="matching_score" widget="percentage"/>
+                <field name="match_validated_at"/>
+                <field name="validated_by"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_product_match_mapping_form" model="ir.ui.view">
+        <field name="name">product.match.mapping.form</field>
+        <field name="model">product.match.mapping</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="status" widget="statusbar" options="{'clickable': '1'}"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="product_id"/>
+                            <field name="external_data_id"/>
+                            <field name="matching_score" widget="percentage"/>
+                        </group>
+                        <group>
+                            <field name="match_validated_at"/>
+                            <field name="validated_by"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Actions -->
+    <record id="action_product_external_data" model="ir.actions.act_window">
+        <field name="name">External Data</field>
+        <field name="res_model">product.external.data</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_product_match_mapping" model="ir.actions.act_window">
+        <field name="name">Product Matches</field>
+        <field name="res_model">product.match.mapping</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
