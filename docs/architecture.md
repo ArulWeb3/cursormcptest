@@ -1,19 +1,38 @@
 # Architecture
 
-## Overview
+## System Overview
 
-This project extends Odoo's functionality by exposing RESTful APIs for various business operations. The architecture follows Odoo's modular design principles while adding API-specific components.
+The project consists of two main components:
+1. Calculator API Service
+2. Odoo API Service
 
-## System Components
+### 1. Calculator API Architecture
 
-### 1. Core Components
+#### Components
 
-- **API Controllers**: Handle HTTP requests and route them to appropriate services
-- **Authentication Middleware**: Manages API authentication and authorization
-- **Service Layer**: Contains business logic and Odoo model interactions
-- **Response Formatters**: Standardize API responses
+```
+calculator/
+├── main.py           # FastAPI application
+├── requirements.txt  # Dependencies
+└── README.md         # Service documentation
+```
 
-### 2. Module Structure
+#### Features
+- RESTful API endpoints
+- Input validation using Pydantic
+- Error handling
+- Swagger documentation
+- Stateless operations
+
+#### API Design
+- Basic arithmetic operations
+- Advanced mathematical functions
+- JSON request/response format
+- HTTP status codes for error handling
+
+### 2. Odoo API Architecture
+
+#### Module Structure
 
 ```
 module_name/
@@ -39,23 +58,47 @@ module_name/
    - Proper status codes
 
 2. **Security First**
-   - Token-based authentication
-   - Role-based access control
    - Input validation
+   - Error handling
+   - Rate limiting
 
 3. **Performance**
-   - Efficient database queries
-   - Response caching
-   - Batch operations support
+   - Efficient operations
+   - Proper error handling
+   - Stateless design
 
 ## Integration Points
 
-1. **Odoo Core**
-   - Model inheritance
-   - Security groups
-   - Business logic hooks
+1. **Calculator API**
+   - Direct HTTP endpoints
+   - JSON request/response
+   - No authentication required
 
-2. **External Systems**
-   - Authentication services
-   - Third-party APIs
-   - Monitoring tools
+2. **Odoo API**
+   - Authentication required
+   - Business logic integration
+   - Database operations
+
+## Security Considerations
+
+1. **Input Validation**
+   - Type checking
+   - Range validation
+   - Error handling
+
+2. **Error Handling**
+   - Proper HTTP status codes
+   - Descriptive error messages
+   - Safe error responses
+
+## Deployment Architecture
+
+1. **Calculator API**
+   - FastAPI application
+   - Uvicorn server
+   - Port 8000
+
+2. **Odoo API**
+   - Odoo server
+   - PostgreSQL database
+   - Port 8069

@@ -2,7 +2,7 @@
 
 ## API Versioning
 
-All API endpoints are prefixed with `/api/v1/` to ensure proper versioning.
+All API endpoints are prefixed with `/api/v1/` for Odoo endpoints and base path `/` for Calculator endpoints.
 
 ## Authentication
 
@@ -17,13 +17,137 @@ Content-Type: application/json
 }
 ```
 
-## Common Endpoints
+## Calculator API Endpoints
 
-### Health Check
+### Basic Operations
 
+#### Add Numbers
 ```http
-GET /api/v1/health
+POST /add
+Content-Type: application/json
+
+{
+    "a": 5,
+    "b": 3
+}
+
+Response:
+{
+    "result": 8
+}
 ```
+
+#### Subtract Numbers
+```http
+POST /subtract
+Content-Type: application/json
+
+{
+    "a": 10,
+    "b": 4
+}
+
+Response:
+{
+    "result": 6
+}
+```
+
+#### Multiply Numbers
+```http
+POST /multiply
+Content-Type: application/json
+
+{
+    "a": 6,
+    "b": 7
+}
+
+Response:
+{
+    "result": 42
+}
+```
+
+#### Divide Numbers
+```http
+POST /divide
+Content-Type: application/json
+
+{
+    "a": 20,
+    "b": 5
+}
+
+Response:
+{
+    "result": 4
+}
+```
+
+### Advanced Operations
+
+#### Power Operation
+```http
+POST /power
+Content-Type: application/json
+
+{
+    "a": 2,
+    "b": 3
+}
+
+Response:
+{
+    "result": 8
+}
+```
+
+#### Square Root
+```http
+POST /square-root
+Content-Type: application/json
+
+{
+    "number": 16
+}
+
+Response:
+{
+    "result": 4
+}
+```
+
+#### Factorial
+```http
+POST /factorial
+Content-Type: application/json
+
+{
+    "number": 5
+}
+
+Response:
+{
+    "result": 120
+}
+```
+
+### Error Responses
+
+```json
+{
+    "detail": "Error message"
+}
+```
+
+Common error cases:
+- Division by zero
+- Negative numbers for square root
+- Non-integer or negative numbers for factorial
+- Result overflow
+
+## Odoo API Endpoints
 
 ### Partners
 
@@ -47,21 +171,19 @@ DELETE /api/v1/products/{id}
 
 ## Response Format
 
+### Success Response
 ```json
 {
-    "status": "success",
-    "data": {},
-    "message": ""
+    "result": value,
+    "status": "success"
 }
 ```
 
-## Error Handling
-
+### Error Response
 ```json
 {
-    "status": "error",
-    "code": "ERROR_CODE",
-    "message": "Error description"
+    "detail": "Error description",
+    "status": "error"
 }
 ```
 
