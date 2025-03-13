@@ -1,27 +1,42 @@
-# Odoo API Documentation
+# Project Documentation
 
-Welcome to the documentation for our Odoo API integration project. This documentation provides comprehensive information about developing, deploying, and consuming Odoo-based APIs.
+## Core Components
 
-## Documentation Structure
+### 1. [Odoo Product Cleansing Module](./odoo_product_cleansing.md)
+- Product data cleansing and enrichment
+- External data management
+- Product matching with scoring
+- REST API integration
 
-- [Getting Started](./getting-started.md) - Quick start guide and initial setup
-- [Architecture](./architecture.md) - System architecture and design principles
-- [API Reference](./api-reference.md) - Detailed API endpoint documentation
-- [Development Guide](./development-guide.md) - Development practices and guidelines
-- [Deployment](./deployment.md) - Deployment instructions and configurations
-- [Security](./security.md) - Security best practices and configurations
+### 2. [Calculator API](./api-reference.md#calculator-api-endpoints)
+- Basic arithmetic operations
+- Advanced mathematical functions
+- REST API endpoints
+
+### 3. [Frontend Applications](./getting-started.md)
+- Calculator web interface
+- Product matching interface
 
 ## Quick Links
 
-- [API Endpoints Overview](./api-reference.md#endpoints)
-- [Authentication](./security.md#authentication)
-- [Development Setup](./development-guide.md#setup)
-- [Deployment Checklist](./deployment.md#checklist)
+### Odoo Module
+- [Module Documentation](./odoo_product_cleansing.md)
+- [API Reference](./odoo_product_cleansing.md#api-reference)
+- [Installation Guide](./odoo_product_cleansing.md#installation)
+
+### Calculator
+- [API Documentation](./api-reference.md)
+- [Frontend Setup](./getting-started.md)
+- [Deployment Guide](./deployment.md)
+
+## Getting Started
+1. [Installation Instructions](./getting-started.md)
+2. [Architecture Overview](./architecture.md)
+3. [Development Guide](./development-guide.md)
+4. [Security Guidelines](./security.md)
 
 ## Contributing
-
 Please read our [Contributing Guidelines](../CONTRIBUTING.md) before submitting any changes.
 
 ## Support
-
 For support and questions, please [create an issue](https://github.com/ArulWeb3/cursormcptest/issues) in our repository.
