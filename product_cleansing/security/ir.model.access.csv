@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_product_external_data_user,product.external.data.user,model_product_external_data,base.group_user,1,1,1,1
+access_product_match_mapping_user,product.match.mapping.user,model_product_match_mapping,base.group_user,1,1,1,1
