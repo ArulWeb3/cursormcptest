@@ -1,5 +1,10 @@
 # Project Documentation
 
+## 🚀 Quick Start
+- [5-Minute Setup Guide](./quick-start-guide.md)
+- [API Quick Reference](./quick-start-guide.md#quick-api-reference)
+- [UI Quick Guide](./quick-start-guide.md#ui-quick-access)
+
 ## Core Components
 
 ### 1. [Odoo Product Cleansing Module](./odoo_product_cleansing.md)
@@ -30,10 +35,11 @@
 - [Deployment Guide](./deployment.md)
 
 ## Getting Started
-1. [Installation Instructions](./getting-started.md)
-2. [Architecture Overview](./architecture.md)
-3. [Development Guide](./development-guide.md)
-4. [Security Guidelines](./security.md)
+1. [Quick Start Guide](./quick-start-guide.md)
+2. [Installation Instructions](./getting-started.md)
+3. [Architecture Overview](./architecture.md)
+4. [Development Guide](./development-guide.md)
+5. [Security Guidelines](./security.md)
 
 ## Contributing
 Please read our [Contributing Guidelines](../CONTRIBUTING.md) before submitting any changes.
