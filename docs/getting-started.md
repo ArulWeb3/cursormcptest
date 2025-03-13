@@ -2,10 +2,9 @@
 
 ## Prerequisites
 
-- Odoo 18.0 or later
 - Python 3.10+
-- PostgreSQL 12+
-- Basic understanding of REST APIs
+- Docker (optional)
+- Git
 
 ## Installation
 
@@ -22,42 +21,54 @@ source venv/bin/activate  # On Windows: .\venv\Scripts\activate
 ```
 
 ### 3. Install Dependencies
+
+#### For Calculator API
 ```bash
-# For Calculator API
 cd calculator
 pip install -r requirements.txt
+```
 
-# For Odoo API
-cd ../odoo
+#### For Frontend
+```bash
+cd calculator-frontend
 pip install -r requirements.txt
 ```
 
-### 4. Configure Settings
-```bash
-# For Odoo
-cp config/odoo.conf.example config/odoo.conf
-# Edit config/odoo.conf with your settings
-```
+## Running the Applications
 
-## Running the Services
+### Method 1: Direct Running
 
-### Calculator API
+1. **Start the Calculator API**
 ```bash
 cd calculator
 uvicorn main:app --reload
-# API will be available at http://localhost:8000
-# Swagger docs at http://localhost:8000/docs
 ```
+API will be available at `http://localhost:8000`
 
-### Odoo Server
+2. **Start the Frontend**
 ```bash
-cd odoo
-./odoo-bin -c config/odoo.conf
+cd calculator-frontend
+streamlit run app.py
+```
+Frontend will be available at `http://localhost:8501`
+
+### Method 2: Using Docker
+
+```bash
+# Start both services
+docker-compose up --build
 ```
 
 ## Quick Start Examples
 
-### Calculator API
+### Using the Web Interface
+
+1. Open `http://localhost:8501` in your browser
+2. Choose between Basic and Advanced operations
+3. Enter numbers and select operation
+4. Click Calculate to see results
+
+### Using the API Directly
 
 1. Add two numbers:
 ```bash
@@ -73,23 +84,21 @@ curl -X POST "http://localhost:8000/square-root" \
      -d '{"number": 16}'
 ```
 
-### Odoo API
+## Features
 
-1. Get authentication token:
-```bash
-curl -X POST "http://localhost:8069/api/v1/auth/token" \
-     -H "Content-Type: application/json" \
-     -d '{"db":"odoo_db","login":"user@example.com","password":"pass"}'
-```
+### Basic Operations
+- Addition
+- Subtraction
+- Multiplication
+- Division
+- Power
 
-2. List partners:
-```bash
-curl "http://localhost:8069/api/v1/partners" \
-     -H "Authorization: Bearer YOUR_TOKEN"
-```
+### Advanced Operations
+- Square Root
+- Factorial
 
 ## Next Steps
 
 - Review the [Architecture Documentation](./architecture.md)
 - Explore the [API Reference](./api-reference.md)
-- Set up your [Development Environment](./development-guide.md)
+- Check [Deployment Guide](./deployment.md) for production setup
